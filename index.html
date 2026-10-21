@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Портфолио | Валентина Комарова</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Caveat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #171717;
+        --muted: #777;
+        --line: #dedede;
+        --bg: #fff;
+        --caption-overlay: linear-gradient(
+          180deg,
+          transparent 0%,
+          #050505e6 28%,
+          #050505fc 55%,
+          #050505 100%
+        );
+        --caption-overlay-top: linear-gradient(
+          180deg,
+          #050505 0%,
+          #050505fc 45%,
+          #050505e6 72%,
+          transparent 100%
+        );
+        --story-caption-overlay: linear-gradient(
+          180deg,
+          transparent 0%,
+          #eadfced9 28%,
+          #dfcdb7fa 55%,
+          #d5bea1 100%
+        );
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #ededed;
+        color: var(--ink);
+        font-family: Manrope, Arial, sans-serif;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .sheet {
+        max-width: 1040px;
+        margin: 28px auto;
+        background: var(--bg);
+        padding: 64px 68px 72px;
+        box-shadow: 0 6px 30px #0000000a;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      h1,
+      h2,
+      h3,
+      .number,
+      .metric strong {
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+      }
+      h1 {
+        font-size: clamp(60px, 9vw, 108px);
+        line-height: 0.86;
+        letter-spacing: -1px;
+        font-weight: 400;
+        margin-bottom: 17px;
+      }
+      h2 {
+        font-size: 23px;
+        letter-spacing: 2.2px;
+        font-weight: 600;
+        margin: 0 0 20px;
+      }
+      h3 {
+        font-size: 24px;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      .script {
+        font:
+          32px Caveat,
+          cursive;
+      }
+      .top {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 35px;
+        align-items: end;
+        padding-bottom: 65px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .top-aside {
+        text-align: right;
+      }
+      .top-aside p {
+        max-width: 280px;
+        margin-left: auto;
+        color: #555;
+      }
+      .rule {
+        height: 1px;
+        background: var(--ink);
+        margin: 12px 0;
+      }
+      .section {
+        padding: 36px 0 44px;
+        border-top: 1px solid var(--line);
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .section-head small {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .lead {
+        font-size: 16px;
+        max-width: 680px;
+        line-height: 1.8;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 34px;
+      }
+      .metric {
+        border-top: 1px solid #aaa;
+        padding-top: 13px;
+      }
+      .metric strong {
+        font-size: 52px;
+        line-height: 1;
+        display: block;
+        font-weight: 500;
+      }
+      .metric span {
+        font-size: 11px;
+        color: #555;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .work {
+        min-width: 0;
+      }
+      .work .media {
+        width: 100%;
+        aspect-ratio: 4/5;
+        background: #f1f1f1;
+        border: 1px solid #dedede;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: #888;
+        gap: 8px;
+      }
+      .work .media.tall {
+        aspect-ratio: 9/16;
+      }
+
+      .work .media.wide {
+        aspect-ratio: 16/10;
+      }
+      .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .media.is-zoomable {
+        cursor: zoom-in;
+      }
+      .media.is-zoomable img {
+        transition:
+          transform 240ms ease,
+          filter 240ms ease;
+      }
+      .media.is-zoomable::after {
+        content: "РАССМОТРЕТЬ  +";
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        z-index: 1;
+        padding: 7px 11px;
+        border: 1px solid #ffffff55;
+        border-radius: 50px;
+        background: #171717dc;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 1;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(5px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+      .media.is-zoomable:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 4px;
+      }
+      .media.is-zoomable:focus-visible::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (hover: hover) {
+        .media.is-zoomable:hover img {
+          filter: brightness(0.88);
+          transform: scale(1.025);
+        }
+        .media.is-zoomable:hover::after {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .work:nth-child(2) .media {
+        background-color: #170f10;
+      }
+      .work:nth-child(2) .media img {
+        object-fit: contain;
+      }
+      .media .placeholder {
+        padding: 20px;
+      }
+      .placeholder b {
+        display: block;
+        font:
+          26px "Barlow Condensed",
+          sans-serif;
+        color: #777;
+        letter-spacing: 1px;
+      }
+      .placeholder span {
+        font-size: 11px;
+      }
+
+      .gallery .work .media,
+      .story-grid .work .media {
+        /* aspect-ratio: 9 / 16; */
+        border: 0;
+        border-radius: 10px;
+      }
+
+      .work footer {
+        padding-top: 13px;
+      }
+      .work footer p {
+        font-size: 11px;
+        color: #666;
+        margin: 4px 0 0;
+      }
+      .tag {
+        display: inline-block;
+        border: 1px solid #bcbcbc;
+        border-radius: 50px;
+        padding: 3px 11px;
+        font-size: 10px;
+        margin: 0 5px 6px 0;
+      }
+      .work a,
+      .text-link {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+      }
+      .work a:hover,
+      .text-link:hover {
+        color: #777;
+      }
+      .section-intro {
+        color: #666;
+        max-width: 700px;
+        margin: -8px 0 25px;
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 15px;
+      }
+      .story-grid .media {
+        aspect-ratio: 9/16;
+      }
+      .story-grid .work footer {
+        font-size: 11px;
+      }
+      .case {
+        border-top: 1px solid #ddd;
+        padding-top: 18px;
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 24px;
+      }
+      .case b {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .case p {
+        margin: 0;
+        color: #555;
+      }
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+      }
+      .bottom h2 {
+        margin-bottom: 8px;
+      }
+      .muted {
+        color: #777;
+      }
+      .button {
+        display: inline-block;
+        background: #171717;
+        color: #fff !important;
+        text-decoration: none !important;
+        padding: 12px 19px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .button:hover {
+        background: #555;
+      }
+      .edit-note {
+        padding: 16px 20px;
+        background: #f4f4f4;
+        border-left: 2px solid #222;
+        margin: 22px 0 0;
+        color: #555;
+        font-size: 12px;
+      }
+      .nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+      .nav a {
+        font-size: 11px;
+        color: #555;
+        text-decoration: none;
+        border-bottom: 1px solid #bbb;
+      }
+      .nav a:hover {
+        color: #000;
+      }
+      .results-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.21fr) minmax(0, 1fr);
+        grid-template-rows: minmax(0, 0.885fr) minmax(0, 1fr);
+        grid-template-areas:
+          "audience reach"
+          "performance reach";
+        gap: 16px;
+        aspect-ratio: 1.254 / 1;
+        margin-top: 30px;
+      }
+      .result-card {
+        position: relative;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        border: 1px solid #d8d8d8;
+        border-radius: 12px;
+        background: #0d1115;
+        box-shadow: 0 12px 34px #00000012;
+        isolation: isolate;
+      }
+      .result-card--audience {
+        grid-area: audience;
+      }
+      .result-card--performance {
+        grid-area: performance;
+      }
+      .result-card--reach {
+        grid-area: reach;
+      }
+      .results-grid .result-card .media {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        border: 0;
+        border-radius: inherit;
+        background: #0d1115;
+      }
+      .results-grid .result-card .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .results-grid .result-card--performance .media img,
+      .results-grid .result-card--reach .media img {
+        object-position: center top;
+      }
+      .results-grid .result-card footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        padding: 58px 20px 18px;
+        background: var(--caption-overlay);
+        color: #fff;
+        pointer-events: none;
+      }
+      .results-grid .result-card footer h3 {
+        margin: 5px 0 2px;
+        font-size: clamp(20px, 2.4vw, 27px);
+        line-height: 1;
+      }
+      .results-grid .result-card footer p {
+        margin: 0;
+        color: #ffffffe0;
+      }
+      .result-card__kicker {
+        display: block;
+        color: #ffffffd6;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+      .results-grid .result-card--performance footer,
+      .results-grid .result-card--reach footer {
+        top: 0;
+        bottom: auto;
+        padding: 18px 20px 58px;
+        background: var(--caption-overlay-top);
+      }
+      .results-grid .media.is-zoomable::after {
+        top: 14px;
+        right: 14px;
+        bottom: auto;
+      }
+      .results-grid .result-card--performance .media.is-zoomable::after,
+      .results-grid .result-card--reach .media.is-zoomable::after {
+        top: auto;
+        bottom: 14px;
+      }
+      .results-grid .media.is-zoomable:focus-visible {
+        outline-color: #fff;
+        outline-offset: -5px;
+      }
+      #stories-gallery .work,
+      #design-gallery .work {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #d8d8d8;
+        border-radius: 12px;
+        background: #0d1115;
+        box-shadow: 0 12px 34px #00000012;
+        isolation: isolate;
+      }
+      #stories-gallery .work {
+        border-color: #cdbba5;
+        background: #e7ddd0;
+      }
+      #stories-gallery .work .media,
+      #design-gallery .work .media {
+        border-radius: inherit;
+      }
+      #stories-gallery .work .media img,
+      #design-gallery .work .media img {
+        object-fit: cover;
+        object-position: center;
+      }
+      #stories-gallery .work footer,
+      #design-gallery .work footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        padding: 52px 16px 14px;
+        background: var(--caption-overlay);
+        color: #fff;
+        pointer-events: none;
+      }
+      #stories-gallery .work footer h3,
+      #design-gallery .work footer h3 {
+        margin: 0;
+        font-size: clamp(17px, 2vw, 22px);
+        line-height: 1;
+      }
+      #stories-gallery .work footer p,
+      #design-gallery .work footer p {
+        margin: 4px 0 0;
+        color: #ffffffe8;
+        line-height: 1.4;
+      }
+      #stories-gallery .work footer {
+        background: var(--story-caption-overlay);
+        color: #302923;
+      }
+      #stories-gallery .work footer p {
+        color: #51463c;
+      }
+      #design-gallery .work footer {
+        position: static;
+        padding: 13px 0 0;
+        background: none;
+        color: var(--ink);
+        pointer-events: auto;
+      }
+      #design-gallery .work footer p {
+        color: #666;
+      }
+      #design-gallery .work {
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        isolation: auto;
+      }
+      #design-gallery .work .media {
+        border-radius: 10px;
+      }
+      #design-gallery .work footer h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        line-height: 1.1;
+      }
+      #stories-gallery .media.is-zoomable::after,
+      #design-gallery .media.is-zoomable::after {
+        top: 14px;
+        right: 14px;
+        bottom: auto;
+      }
+      #stories-gallery .media.is-zoomable::after {
+        border-color: #ffffff70;
+        background: #594838e8;
+        color: #fff;
+      }
+      #stories-gallery .media.is-zoomable:focus-visible,
+      #design-gallery .media.is-zoomable:focus-visible {
+        outline-color: #fff;
+        outline-offset: -5px;
+      }
+      #stories-gallery .media.is-zoomable:focus-visible {
+        outline-color: #4a3c31;
+      }
+      body.lightbox-open {
+        overflow: hidden;
+      }
+      .image-lightbox {
+        --lightbox-padding: clamp(16px, 3vw, 36px);
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        max-width: none;
+        height: 100vh;
+        height: 100dvh;
+        max-height: none;
+        margin: 0;
+        padding: var(--lightbox-padding);
+        border: 0;
+        background: #111111f2;
+        color: #fff;
+        overflow: hidden;
+      }
+      .image-lightbox[open] {
+        display: grid;
+        place-items: center;
+        animation: lightbox-fade-in 180ms ease both;
+      }
+      .image-lightbox::backdrop {
+        background: #111111e6;
+        backdrop-filter: blur(8px);
+      }
+      .image-lightbox__image {
+        display: block;
+        width: auto;
+        max-width: calc(
+          100vw - var(--lightbox-padding) - var(--lightbox-padding)
+        );
+        min-width: 0;
+        height: auto;
+        max-height: calc(
+          100vh - var(--lightbox-padding) - var(--lightbox-padding)
+        );
+        max-height: calc(
+          100dvh - var(--lightbox-padding) - var(--lightbox-padding)
+        );
+        min-height: 0;
+        border-radius: 10px;
+        object-fit: contain;
+        box-shadow: 0 18px 70px #00000080;
+        animation: lightbox-image-in 220ms ease both;
+      }
+      .image-lightbox__close {
+        position: fixed;
+        top: max(14px, env(safe-area-inset-top));
+        right: max(14px, env(safe-area-inset-right));
+        z-index: 2;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        border: 1px solid #ffffff80;
+        border-radius: 50%;
+        background: #171717cc;
+        color: #fff;
+        cursor: pointer;
+        transition:
+          background 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+      .image-lightbox__close::before,
+      .image-lightbox__close::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 1px;
+        background: currentColor;
+      }
+      .image-lightbox__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .image-lightbox__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .image-lightbox__close:hover {
+        background: #fff;
+        color: var(--ink);
+        transform: rotate(4deg);
+      }
+      .image-lightbox__close:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+      .image-lightbox__nav {
+        position: fixed;
+        top: 50%;
+        z-index: 2;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        place-items: center;
+        border: 1px solid #ffffff80;
+        border-radius: 50%;
+        background: #171717cc;
+        color: #fff;
+        cursor: pointer;
+        transform: translateY(-50%);
+        transition:
+          background 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+      .image-lightbox__nav[hidden],
+      .image-lightbox__counter[hidden] {
+        display: none;
+      }
+      .image-lightbox__nav::before {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-top: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+      }
+      .image-lightbox__nav--prev {
+        left: max(14px, env(safe-area-inset-left));
+      }
+      .image-lightbox__nav--prev::before {
+        margin-left: 4px;
+        transform: rotate(-135deg);
+      }
+      .image-lightbox__nav--next {
+        right: max(14px, env(safe-area-inset-right));
+      }
+      .image-lightbox__nav--next::before {
+        margin-right: 4px;
+        transform: rotate(45deg);
+      }
+      .image-lightbox__nav:hover {
+        background: #fff;
+        color: var(--ink);
+        transform: translateY(-50%) scale(1.04);
+      }
+      .image-lightbox__nav:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+      .image-lightbox__counter {
+        position: fixed;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        left: 50%;
+        z-index: 2;
+        min-width: 66px;
+        padding: 8px 12px;
+        border: 1px solid #ffffff55;
+        border-radius: 50px;
+        background: #171717cc;
+        color: #fff;
+        font:
+          600 11px/1 "Barlow Condensed",
+          sans-serif;
+        letter-spacing: 2px;
+        text-align: center;
+        pointer-events: none;
+        transform: translateX(-50%);
+      }
+      .image-lightbox.is-carousel .image-lightbox__image {
+        max-width: calc(
+          100vw - var(--lightbox-padding) - var(--lightbox-padding) - 120px
+        );
+        max-height: calc(
+          100vh - var(--lightbox-padding) - var(--lightbox-padding) - 44px
+        );
+        max-height: calc(
+          100dvh - var(--lightbox-padding) - var(--lightbox-padding) - 44px
+        );
+        user-select: none;
+        touch-action: pan-y pinch-zoom;
+        -webkit-user-drag: none;
+      }
+      .image-lightbox__image.is-next {
+        animation: lightbox-slide-next 180ms ease both;
+      }
+      .image-lightbox__image.is-prev {
+        animation: lightbox-slide-prev 180ms ease both;
+      }
+      @keyframes lightbox-fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes lightbox-image-in {
+        from {
+          opacity: 0;
+          transform: scale(0.975);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes lightbox-slide-next {
+        from {
+          opacity: 0;
+          transform: translateX(14px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+      @keyframes lightbox-slide-prev {
+        from {
+          opacity: 0;
+          transform: translateX(-14px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .media.is-zoomable img,
+        .media.is-zoomable::after,
+        .image-lightbox[open],
+        .image-lightbox__image,
+        .image-lightbox__image.is-next,
+        .image-lightbox__image.is-prev,
+        .image-lightbox__close,
+        .image-lightbox__nav {
+          animation: none;
+          transition: none;
+        }
+      }
+      @media (max-width: 700px) {
+        body {
+          background: #fff;
+        }
+        .sheet {
+          margin: 0;
+          padding: 32px 22px;
+          box-shadow: none;
+        }
+        .top {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding-bottom: 40px;
+        }
+        .top-aside {
+          text-align: left;
+        }
+        .top-aside p {
+          margin-left: 0;
+        }
+        .metrics {
+          gap: 12px;
+        }
+        .metric strong {
+          font-size: 37px;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+        .story-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .results-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: none;
+          grid-template-areas:
+            "audience"
+            "performance"
+            "reach";
+          gap: 16px;
+          aspect-ratio: auto;
+          margin-top: 24px;
+        }
+        .result-card--audience {
+          aspect-ratio: 1178 / 801;
+        }
+        .result-card--performance {
+          aspect-ratio: 1179 / 906;
+        }
+        .result-card--reach {
+          aspect-ratio: 1179 / 2117;
+        }
+        .results-grid .result-card footer {
+          padding: 48px 16px 14px;
+        }
+        .results-grid .result-card--performance footer,
+        .results-grid .result-card--reach footer {
+          padding: 14px 16px 48px;
+        }
+        .results-grid .result-card footer h3 {
+          font-size: 22px;
+        }
+        #stories-gallery .work footer,
+        #design-gallery .work footer {
+          padding: 42px 12px 12px;
+        }
+        #stories-gallery .work footer h3,
+        #design-gallery .work footer h3 {
+          font-size: 17px;
+        }
+        #design-gallery .work footer p {
+          display: block;
+          overflow: visible;
+          font-size: 11px;
+          -webkit-line-clamp: unset;
+        }
+        #design-gallery .work footer {
+          padding: 13px 0 0;
+        }
+        #design-gallery .work footer h3 {
+          font-size: 24px;
+        }
+
+        .section {
+          padding: 30px 0;
+        }
+        .case {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+        .bottom {
+          display: block;
+        }
+        .bottom .button {
+          margin-top: 15px;
+        }
+        .image-lightbox {
+          --lightbox-padding: 12px;
+        }
+        .image-lightbox__close {
+          top: max(10px, env(safe-area-inset-top));
+          right: max(10px, env(safe-area-inset-right));
+          width: 44px;
+          height: 44px;
+        }
+        .image-lightbox.is-carousel .image-lightbox__image {
+          max-width: calc(
+            100vw - var(--lightbox-padding) - var(--lightbox-padding)
+          );
+          max-height: calc(
+            100vh - var(--lightbox-padding) - var(--lightbox-padding) - 100px -
+              env(safe-area-inset-bottom)
+          );
+          max-height: calc(
+            100dvh - var(--lightbox-padding) - var(--lightbox-padding) - 100px -
+              env(safe-area-inset-bottom)
+          );
+        }
+        .image-lightbox__nav {
+          top: auto;
+          bottom: max(10px, env(safe-area-inset-bottom));
+          width: 44px;
+          height: 44px;
+          transform: none;
+        }
+        .image-lightbox__nav--prev {
+          left: calc(50% - 82px);
+        }
+        .image-lightbox__nav--next {
+          right: calc(50% - 82px);
+        }
+        .image-lightbox__nav:hover {
+          transform: scale(1.04);
+        }
+        .image-lightbox__counter {
+          bottom: max(17px, calc(env(safe-area-inset-bottom) + 7px));
+        }
+      }
+      @media print {
+        @page {
+          size: A4;
+          margin: 13mm;
+        }
+        body {
+          background: white;
+        }
+        .sheet {
+          max-width: none;
+          padding: 0;
+          margin: 0;
+          box-shadow: none;
+        }
+        .section,
+        .work,
+        .metric,
+        .case {
+          break-inside: avoid;
+        }
+        .top {
+          padding-bottom: 25px;
+        }
+        .section {
+          padding: 22px 0;
+        }
+        .media {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        .results-grid .result-card footer,
+        #stories-gallery .work footer,
+        #design-gallery .work footer {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        .nav,
+        .edit-note,
+        .image-lightbox {
+          display: none;
+        }
+        h1 {
+          font-size: 72px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+        .metric strong {
+          font-size: 38px;
+        }
+      }
+      .portfolio-video {
+        width: 100%;
+        aspect-ratio: 9/16;
+        object-fit: contain;
+        background: #171717;
+        display: block;
+        border-radius: 10px;
+        /* border: 1px solid #dedede; */
+      }
+    </style>
+  </head>
+  <body>
+    <main class="sheet">
+      <header class="top">
+        <div>
+          <div class="eyebrow">ПОРТФОЛИО / 2026</div>
+          <h1>ВАЛЕНТИНА<br />КОМАРОВА</h1>
+          <div class="script">ИИ-креатор / контент-креатор</div>
+          <nav class="nav">
+            <a href="#results">Результаты</a><a href="#video">Видео</a
+            ><a href="#stories">Сторис</a><a href="#design">Дизайн</a
+            ><a href="#contacts">Контакты</a>
+          </nav>
+        </div>
+        <div class="top-aside">
+          <div class="eyebrow">ИДЕЯ → ВИЗУАЛ → РЕЗУЛЬТАТ</div>
+          <div class="rule"></div>
+          <p>
+            Создаю идеи, сценарии, изображения и видео. Разрабатываю визуальные
+            материалы для соцсетей, оформляю контент и продающие сторис
+          </p>
+          <div>
+            <span class="tag">ChatGPT</span><span class="tag">Grok</span
+            ><span class="tag">Figma</span><span class="tag">AI-видео</span>
+          </div>
+        </div>
+      </header>
+      <section class="section" id="results">
+        <div class="section-head">
+          <h2>01 / РЕЗУЛЬТАТЫ</h2>
+          <small>ЛИЧНЫЙ БЛОГ</small>
+        </div>
+        <p class="lead">
+          Развивала собственный блог: самостоятельно придумывала темы, писала
+          сценарии, создавала визуалы и монтировала ролики
+        </p>
+        <div class="metrics">
+          <div class="metric">
+            <strong>24 000</strong><span>подписчиков блога</span>
+          </div>
+          <div class="metric">
+            <strong>3,5 МЛН+</strong><span>просмотров на 8 роликах</span>
+          </div>
+          <div class="metric">
+            <strong>930 ТЫС.</strong><span>просмотров лучшего ролика</span>
+          </div>
+        </div>
+        <div class="results-grid">
+          <article class="work result-card result-card--audience">
+            <div
+              class="media"
+              data-image="./images/подписчики.jpg"
+              data-alt="Профиль блога с аудиторией 24,2 тысячи подписчиков"
+            >
+              <div class="placeholder">
+                <b>СТАТИСТИКА / 01</b>
+              </div>
+            </div>
+            <footer>
+              <span class="result-card__kicker">01 / АУДИТОРИЯ</span>
+              <h3>Аудитория блога</h3>
+              <p>Рост и размер сообщества</p>
+            </footer>
+          </article>
+          <article class="work result-card result-card--performance">
+            <div
+              class="media"
+              data-image="./images/статистика.jpg"
+              data-alt="Статистика ролика: 930 299 просмотров и 14 445 подписок"
+            >
+              <div class="placeholder">
+                <b>СТАТИСТИКА / 02</b>
+              </div>
+            </div>
+            <footer>
+              <span class="result-card__kicker">02 / ОДИН РОЛИК</span>
+              <h3>Статистика одного из видео</h3>
+              <p>Количество подписок с одного ролика</p>
+            </footer>
+          </article>
+          <article class="work result-card result-card--reach">
+            <div
+              class="media"
+              data-image="./images/просмотры.jpg"
+              data-alt="Подборка просмотров восьми опубликованных роликов"
+            >
+              <div class="placeholder">
+                <b>СТАТИСТИКА / 03</b><span>Скриншот просмотров роликов</span>
+              </div>
+            </div>
+            <footer>
+              <span class="result-card__kicker">03 / ОХВАТЫ</span>
+              <h3>Охваты и просмотры</h3>
+              <p>Подборка результатов опубликованного контента</p>
+            </footer>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="video">
+        <div class="section-head">
+          <h2>02 / ВИДЕО & REELS</h2>
+          <small>СЦЕНАРИЙ · ВИЗУАЛ · МОНТАЖ</small>
+        </div>
+        <p class="section-intro">
+          Подборка самых просматриваемых роликов. Видео воспроизводятся прямо на
+          странице.
+        </p>
+        <div class="gallery" id="video-gallery"></div>
+      </section>
+      <section class="section" id="stories">
+        <div class="section-head">
+          <h2>03 / ПРОДАЮЩИЕ СТОРИС</h2>
+          <small>СТОРИТЕЛЛИНГ · ПРОДАЖИ</small>
+        </div>
+        <p class="section-intro">
+          Примеры последовательности сторис для продвижения обучения: текст,
+          визуал, композиция и логика подачи. Оформление сделано в Figma
+        </p>
+        <div class="story-grid" id="stories-gallery"></div>
+      </section>
+      <section class="section" id="design">
+        <div class="section-head">
+          <h2>04 / ОБЛОЖКИ & ДИЗАЙН</h2>
+          <small>FIGMA · КАРУСЕЛИ · КРЕАТИВЫ</small>
+        </div>
+        <p class="section-intro">
+          Визуальные материалы для соцсетей: обложки роликов, карусели и
+          рекламные макеты. Оформление сделано в Figma
+        </p>
+        <div class="gallery" id="design-gallery"></div>
+      </section>
+      <section class="section" id="contacts">
+        <div class="bottom">
+          <div>
+            <h2>КОНТАКТЫ</h2>
+            <p>
+              <a
+                class="text-link"
+                id="email-link"
+                href="mailto:valya_fomina_98@inbox.ru"
+                >valya_fomina_98@inbox.ru</a
+              ><br /><a
+                class="text-link"
+                id="telegram-link"
+                href="https://t.me/evpitrihilya"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Telegram</a
+              >
+              <br /><a
+                class="text-link"
+                id="instagram-link"
+                href="https://www.instagram.com/vicurumi?srtk=eDV5MHpmeW1sa2Yx&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram *</a
+              >
+            </p>
+          </div>
+        </div>
+        <p class="muted" style="font-size: 10px; margin-top: 35px">
+          * Instagram принадлежит Meta, деятельность которой признана
+          экстремистской и запрещена на территории РФ
+        </p>
+      </section>
+    </main>
+    <dialog
+      class="image-lightbox"
+      id="image-lightbox"
+      aria-label="Полноэкранный просмотр изображения"
+    >
+      <button
+        class="image-lightbox__close"
+        id="image-lightbox-close"
+        type="button"
+        aria-label="Закрыть изображение"
+      ></button>
+      <button
+        class="image-lightbox__nav image-lightbox__nav--prev"
+        id="image-lightbox-prev"
+        type="button"
+        aria-label="Предыдущая сторис"
+        aria-controls="image-lightbox-image"
+        hidden
+      ></button>
+      <img
+        class="image-lightbox__image"
+        id="image-lightbox-image"
+        alt=""
+        draggable="false"
+      />
+      <button
+        class="image-lightbox__nav image-lightbox__nav--next"
+        id="image-lightbox-next"
+        type="button"
+        aria-label="Следующая сторис"
+        aria-controls="image-lightbox-image"
+        hidden
+      ></button>
+      <div
+        class="image-lightbox__counter"
+        id="image-lightbox-counter"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+      ></div>
+    </dialog>
+    <script>
+      /* РЕДАКТИРОВАНИЕ: укажи реальные ссылки и пути к изображениям. Пустая ссылка = ссылка не показывается. */
+      const videos = [
+        {
+          title: "Самый просматриваемый ролик",
+          views: "930 тыс. просмотров",
+          image: "images/обложка1.png",
+          file: "videos/1.mp4",
+          url: "",
+        },
+        {
+          title: "Популярный ролик № 2",
+          views: "906 тыс. просмотров",
+          image: "images/обложка2.png",
+          file: "videos/2.mp4",
+          url: "",
+        },
+        {
+          title: "Популярный ролик № 3",
+          views: "541 тыс. просмотров",
+          image: "images/обложка3.png",
+          file: "videos/3.mp4",
+          url: "",
+        },
+        {
+          title: "Ролик по заказу клиента",
+          views: null,
+          image: "images/обложка.png",
+          file: "videos/нарусасу.mp4",
+          url: "",
+        },
+        {
+          title: "Другой мультик",
+          views: "96 тыс. просмотров",
+          image: "images/золушкаОбложка.png",
+          file: "videos/2Золушка.mp4",
+          url: "",
+        },
+      ];
+      const stories = [
+        { title: "Сторис 01", image: "images/1.png" },
+        { title: "Сторис 02", image: "images/2.png" },
+        { title: "Сторис 03", image: "images/3.png" },
+        { title: "Сторис 04", image: "images/4.png" },
+        { title: "Сторис 05", image: "images/5.png" },
+        { title: "Сторис 06", image: "images/6.png" },
+        { title: "Сторис 07", image: "images/7.png" },
+        { title: "Сторис 08", image: "images/8.png" },
+      ];
+      const designs = [
+        {
+          // title: "Обложка № 1",
+          // subtitle: "Обложка ролика: ChatGpt + Figma",
+          image: "images/обложка1.png",
+        },
+        {
+          // title: "Обложка № 2",
+          // subtitle: "Обложка ролика: ChatGpt + Figma",
+          image: "images/золушкаОбложка.png",
+        },
+        {
+          // title: "Обложка № 3",
+          // subtitle: "Обложка ролика: ChatGpt + Figma",
+          image: "images/обложка.png",
+        },
+      ];
+      // const aiWorks = [
+      //   {
+      //     title: "ИИ-изображение",
+      //     subtitle: "Укажи задачу и инструмент",
+      //     image: "images/ai-01.jpg",
+      //     url: "",
+      //   },
+      //   {
+      //     title: "ИИ-видео",
+      //     subtitle: "Укажи задачу и инструмент",
+      //     image: "images/ai-02.jpg",
+      //     url: "",
+      //   },
+      // ];
+      const imageLightbox = document.getElementById("image-lightbox");
+      const imageLightboxImage = document.getElementById(
+        "image-lightbox-image",
+      );
+      const imageLightboxClose = document.getElementById(
+        "image-lightbox-close",
+      );
+      const imageLightboxPrevious = document.getElementById(
+        "image-lightbox-prev",
+      );
+      const imageLightboxNext = document.getElementById("image-lightbox-next");
+      const imageLightboxCounter = document.getElementById(
+        "image-lightbox-counter",
+      );
+      let imageLightboxTrigger = null;
+      let imageLightboxItems = [];
+      let imageLightboxIndex = -1;
+      let imageLightboxTouchStart = null;
+
+      function makeImageZoomable(container, img, title) {
+        container.classList.add("is-zoomable");
+        container.tabIndex = 0;
+        container.setAttribute("role", "button");
+        container.setAttribute("aria-haspopup", "dialog");
+        container.setAttribute("aria-controls", "image-lightbox");
+        container.setAttribute(
+          "aria-label",
+          `Открыть изображение «${title || img.alt || "Работа"}» на весь экран`,
+        );
+      }
+
+      function showImageLightboxItem(index, direction = 0) {
+        if (!imageLightboxItems.length) return;
+
+        imageLightboxIndex =
+          ((index % imageLightboxItems.length) + imageLightboxItems.length) %
+          imageLightboxItems.length;
+        const item = imageLightboxItems[imageLightboxIndex];
+
+        imageLightboxImage.classList.remove("is-next", "is-prev");
+        imageLightboxImage.src = item.src;
+        imageLightboxImage.alt = item.alt;
+
+        if (imageLightboxItems.length > 1) {
+          const current = String(imageLightboxIndex + 1).padStart(2, "0");
+          const total = String(imageLightboxItems.length).padStart(2, "0");
+          imageLightboxCounter.textContent = `${current} / ${total}`;
+          imageLightboxCounter.setAttribute(
+            "aria-label",
+            `${item.alt}, ${imageLightboxIndex + 1} из ${imageLightboxItems.length}`,
+          );
+        }
+
+        if (direction) {
+          void imageLightboxImage.offsetWidth;
+          imageLightboxImage.classList.add(
+            direction > 0 ? "is-next" : "is-prev",
+          );
+        }
+      }
+
+      function moveImageLightbox(direction) {
+        if (imageLightboxItems.length > 1) {
+          showImageLightboxItem(imageLightboxIndex + direction, direction);
+        }
+      }
+
+      function openImageLightbox(container) {
+        const img = container.querySelector("img");
+        if (!img || imageLightbox.open) return;
+
+        imageLightboxTrigger = container;
+        const storyIndex = Number(container.dataset.storyIndex);
+        const opensStoryCarousel =
+          container.dataset.storyIndex !== undefined &&
+          Number.isInteger(storyIndex) &&
+          storyIndex >= 0 &&
+          storyIndex < stories.length;
+
+        imageLightboxItems = opensStoryCarousel
+          ? stories.map((story) => ({
+              src: story.image,
+              alt: story.title,
+            }))
+          : [
+              {
+                src: img.currentSrc || img.src,
+                alt: img.alt || "Изображение из портфолио",
+              },
+            ];
+
+        imageLightbox.classList.toggle("is-carousel", opensStoryCarousel);
+        imageLightboxPrevious.hidden = !opensStoryCarousel;
+        imageLightboxNext.hidden = !opensStoryCarousel;
+        imageLightboxCounter.hidden = !opensStoryCarousel;
+        imageLightbox.setAttribute(
+          "aria-label",
+          opensStoryCarousel
+            ? "Карусель продающих сторис"
+            : "Полноэкранный просмотр изображения",
+        );
+        showImageLightboxItem(opensStoryCarousel ? storyIndex : 0);
+        document.body.classList.add("lightbox-open");
+        imageLightbox.showModal();
+        imageLightboxClose.focus({ preventScroll: true });
+      }
+
+      function closeImageLightbox() {
+        if (imageLightbox.open) imageLightbox.close();
+      }
+
+      function media(src, title, ratio = "") {
+        const div = document.createElement("div");
+        div.className = "media " + ratio;
+        const p = document.createElement("div");
+        p.className = "placeholder";
+        const b = document.createElement("b");
+        b.textContent = title;
+        const s = document.createElement("span");
+        s.textContent = "Добавь файл: " + src;
+        p.append(b, s);
+        div.append(p);
+        const img = new Image();
+        img.alt = title;
+        img.onload = () => {
+          div.replaceChildren(img);
+          makeImageZoomable(div, img, title);
+        };
+        img.src = src;
+        return div;
+      }
+      function render(id, items, ratio) {
+        const root = document.getElementById(id);
+        items.forEach((item, index) => {
+          const a = document.createElement("article");
+          a.className = "work";
+          if (item.file) {
+            const v = document.createElement("video");
+            v.className = "portfolio-video";
+            v.controls = true;
+            v.preload = "none";
+            v.playsInline = true;
+            v.poster = item.image;
+            const source = document.createElement("source");
+            source.src = item.file;
+            source.type = "video/mp4";
+            v.append(source);
+            a.append(v);
+          } else {
+            const imageMedia = media(item.image, item.title, ratio);
+            if (id === "stories-gallery") {
+              imageMedia.dataset.storyIndex = index;
+            }
+            a.append(imageMedia);
+          }
+          const f = document.createElement("footer");
+          const h = document.createElement("h3");
+          if (item.url) {
+            const link = document.createElement("a");
+            link.href = item.url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = item.title + " ↗";
+            h.append(link);
+          } else {
+            h.textContent = item.title;
+          }
+          f.append(h);
+          if (item.views || item.subtitle) {
+            const p = document.createElement("p");
+            p.textContent = item.views || item.subtitle;
+            f.append(p);
+          }
+          a.append(f);
+          root.append(a);
+        });
+      }
+      render("video-gallery", videos, "tall");
+      render("stories-gallery", stories, "tall");
+      render("design-gallery", designs, "tall");
+      // render("ai-gallery", aiWorks, "wide");
+
+      document.querySelector("main").addEventListener("click", (event) => {
+        const container = event.target.closest(".media.is-zoomable");
+        if (container) openImageLightbox(container);
+      });
+
+      document.querySelector("main").addEventListener("keydown", (event) => {
+        const container = event.target.closest(".media.is-zoomable");
+        if (container && (event.key === "Enter" || event.key === " ")) {
+          event.preventDefault();
+          openImageLightbox(container);
+        }
+      });
+
+      imageLightboxClose.addEventListener("click", closeImageLightbox);
+      imageLightboxPrevious.addEventListener("click", () => {
+        moveImageLightbox(-1);
+      });
+      imageLightboxNext.addEventListener("click", () => {
+        moveImageLightbox(1);
+      });
+      imageLightbox.addEventListener("keydown", (event) => {
+        if (!imageLightbox.classList.contains("is-carousel")) return;
+
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          moveImageLightbox(event.key === "ArrowRight" ? 1 : -1);
+        }
+      });
+      imageLightbox.addEventListener("click", (event) => {
+        if (event.target === imageLightbox) closeImageLightbox();
+      });
+      imageLightboxImage.addEventListener(
+        "touchstart",
+        (event) => {
+          if (
+            !imageLightbox.classList.contains("is-carousel") ||
+            event.touches.length !== 1
+          ) {
+            imageLightboxTouchStart = null;
+            return;
+          }
+
+          imageLightboxTouchStart = {
+            x: event.touches[0].clientX,
+            y: event.touches[0].clientY,
+          };
+        },
+        { passive: true },
+      );
+      imageLightboxImage.addEventListener(
+        "touchend",
+        (event) => {
+          if (!imageLightboxTouchStart || !event.changedTouches.length) return;
+
+          const deltaX =
+            event.changedTouches[0].clientX - imageLightboxTouchStart.x;
+          const deltaY =
+            event.changedTouches[0].clientY - imageLightboxTouchStart.y;
+          imageLightboxTouchStart = null;
+
+          if (Math.abs(deltaX) >= 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            event.preventDefault();
+            moveImageLightbox(deltaX < 0 ? 1 : -1);
+          }
+        },
+        { passive: false },
+      );
+      imageLightboxImage.addEventListener("touchcancel", () => {
+        imageLightboxTouchStart = null;
+      });
+      imageLightbox.addEventListener("close", () => {
+        document.body.classList.remove("lightbox-open");
+        imageLightboxImage.removeAttribute("src");
+        imageLightboxImage.alt = "";
+        imageLightboxImage.classList.remove("is-next", "is-prev");
+        imageLightbox.classList.remove("is-carousel");
+        imageLightboxPrevious.hidden = true;
+        imageLightboxNext.hidden = true;
+        imageLightboxCounter.hidden = true;
+        imageLightboxCounter.textContent = "";
+        imageLightboxCounter.removeAttribute("aria-label");
+        imageLightboxItems = [];
+        imageLightboxIndex = -1;
+        imageLightboxTouchStart = null;
+        imageLightboxTrigger?.focus({ preventScroll: true });
+        imageLightboxTrigger = null;
+      });
+
+      document.querySelectorAll("[data-image]").forEach((el) => {
+        const src = el.dataset.image;
+        const img = new Image();
+        img.alt = el.dataset.alt || el.textContent.trim();
+        img.onload = () => {
+          el.replaceChildren(img);
+          makeImageZoomable(el, img, img.alt);
+        };
+        img.src = src;
+      });
+    </script>
+  </body>
+</html>
