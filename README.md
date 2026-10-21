@@ -18,7 +18,7 @@ ChatGPT · Grok · Figma · HTML · CSS
 
 ### Посмотреть портфолио
 
-[Открыть сайт](https://github.com/evpitrihilya/portfolio.git)
+[Открыть сайт](https://evpitrihilya.github.io/portfolio/)
 
 ### Контакты
 
